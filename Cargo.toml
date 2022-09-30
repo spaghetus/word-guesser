@@ -1,0 +1,25 @@
+[package]
+name = "word-guesser"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rayon = "1.5.3"
+lazy_static = {version = "1.4.0", optional = true}
+const-str = {version = "0.4.3", optional = true, features = ["case"]}
+
+[features]
+default = ["dictionary"]
+dictionary = ["lazy_static", "const-str"]
+
+[dev-dependencies]
+indicatif = "0.17.1"
+eframe = "0.19.0"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+panic = "abort"
+codegen-units = 1
