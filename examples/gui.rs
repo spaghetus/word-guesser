@@ -1,12 +1,9 @@
 use std::{
-	sync::{
-		mpsc::{channel, Receiver, Sender},
-		Arc, Mutex, RwLock,
-	},
+	sync::{Arc, RwLock},
 	thread::JoinHandle,
 };
 
-use eframe::{egui, App, NativeOptions};
+use eframe::{App, NativeOptions};
 use word_guesser::Guesser;
 
 fn main() {
@@ -26,7 +23,7 @@ struct State {
 }
 
 impl App for State {
-	fn update(&mut self, ctx: &eframe::egui::Context, frame: &mut eframe::Frame) {
+	fn update(&mut self, ctx: &eframe::egui::Context, _frame: &mut eframe::Frame) {
 		eframe::egui::CentralPanel::default().show(ctx, |ui| match &self.guesser {
 			None => {
 				ui.label("To start the game, set the length of your word.");

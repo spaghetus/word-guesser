@@ -1,7 +1,5 @@
 use std::collections::BTreeMap;
 
-use rayon::prelude::*;
-
 #[cfg(feature = "dictionary")]
 const WORDS_FILE: &str = include_str!("words.list");
 
